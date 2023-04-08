@@ -30,3 +30,8 @@
 
 - [Salakhova Rumiya]
 
+Добавлено 08.04.2023
+
+![Модель БД](/images/image.jpg)
+
+
