@@ -38,14 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'portal'
     'allauth.account',
     'allauth.socialaccount',
-    'courses',
-    'memberships',
-    'users',
+    'portal',
+    # 'memberships',
+    # 'users',
     'blog',
-    'crispy_forms',
-    'allauth',
+    'images'
+    # 'crispy_forms',
+    # 'allauth',
 ]
 
 MIDDLEWARE = [
@@ -183,9 +185,9 @@ ACCOUNT_PASSWORD_MIN_LENGTH = 6
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
 EMAIL_USE_TLS = True
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER='put your email here'
-EMAIL_HOST_PASSWORD='put your email password here'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'put your email here'
+EMAIL_HOST_PASSWORD = 'put your email password here'
 EMAIL_PORT = 587
 
 
