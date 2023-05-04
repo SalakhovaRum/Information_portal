@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- Hero section -->
+<section class="hero-section set-bg" data-setbg="{% static 'webuni/img/bg.jpg'%}">
+  <div class="container">
+    <div class="hero-text text-white">
+      {% if request.user.is_authenticated %}
+      <h2>Miresevini {% if request.user.profile.is_teacher == True %}
+         mesues,
+        {% endif %} {{ request.user.username|capfirst }}
+
+
+      </h2>
+      {% else %}
+      <h2>Лучшие бесплатные онлайн-курсы</h2>
+      {% endif %}
+      <p> та напишу я сюда что-нибудь, узбакойтесь</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <form method="post" action="{% url 'courses:kerko_kurs' %}" class="intro-newslatter"> {% csrf_token %}
+          <input name="search" type="text" placeholder="Поиск курса">
+          <button type="submit" class="site-btn">Поиск курса</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Hero section end -->
+
+<!-- categories section -->
+<section class="categories-section spad">
+  <div class="container">
+    <div class="section-title">
+      <h2 id="kurset">Категории и классы</h2>
+      <p>точно-точно</p>
+    </div>
+    <div class="row">
+      {% for cat in category %}
+      <!-- categorie -->
+      <div data-aos="zoom-in" class="col-lg-4 col-md-6">
+        <div class="categorie-item">
+          <div class="ci-thumb set-bg" data-setbg="{{ cat.imazhi.url }}"></div>
+          <div class="ci-text">
+
+            <h5>{{cat.titulli|capfirst}}</h5>
+
+            <p>{{ cat.pershkrimi|capfirst }}</p>
+            <span><a class="btn btn-success" href="/courses/{{ cat.id }}">Посмотреть учебные дисциплины</a></span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- categories section end -->
+{% if request.user.is_authenticated %}
+{% else %}
+<section class="course-section spad">
+  <div class="container">
+    <div class="section-title mb-0">
+      <h2>Примеры курсов</h2>
+      <p class="pb-3">Вот несколько примеров курсов, которые студенты изучают на нашей платформе</p>
+    </div>
+  </div>
+  <div class="course-warp">
+    <div class="row course-items-area">
+      <!-- course -->
+      <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+        <div class="course-item">
+          <div class="course-thumb set-bg" data-setbg="{% static 'webuni/img/courses/4.jpg' %}">
+            <iframe width="100%" height="290" src="https://www.youtube.com/embed/EexyBwBG9dM?controls=0"  frameborder="0" controls allowfullscreen></iframe>
+
+          </div>
+          <div class="course-info">
+            <div class="course-text">
+              <h5>Геометрия</h5>
+              <p>Математика 10</p>
+              <div class="students">Класс 10</div>
+            </div>
+            <div class="course-author">
+              <div class="ca-pic set-bg" data-setbg="{% static 'webuni/img/authors/4.jpg' %}"></div>
+              <p>Emri Mbiemri, <span>Учитель</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- course -->
+      <div class="mix col-lg-3 col-md-4 col-sm-6 design">
+        <div class="course-item">
+          <div class="course-thumb set-bg" data-setbg="{% static 'webuni/img/courses/4.jpg' %}">
+            <iframe width="100%" height="290" src="https://www.youtube.com/embed/mNJ06S60B9k?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="course-info">
+            <div class="course-text">
+              <h5>Электролиз</h5>
+              <p>Химия</p>
+              <div class="students">Класс 11</div>
+            </div>
+            <div class="course-author">
+              <div class="ca-pic set-bg" data-setbg="{% static 'webuni/img/authors/4.jpg' %}"></div>
+              <p>Emri Mbiemri, <span>Учитель</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- course -->
+      <div class="mix col-lg-3 col-md-4 col-sm-6 web">
+        <div class="course-item">
+          <div class="course-thumb set-bg" data-setbg="{% static 'webuni/img/courses/4.jpg' %}">
+            <iframe width="100%" height="290" src="https://www.youtube.com/embed/3Q_oYDQ2whs?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="course-info">
+            <div class="course-text">
+              <h5>Тригонометрия</h5>
+              <p>Математика</p>
+              <div class="students">Класс 11</div>
+            </div>
+            <div class="course-author">
+              <div class="ca-pic set-bg" data-setbg="{% static 'webuni/img/authors/4.jpg' %}"></div>
+              <p>Emri Mbiemri, <span>Учитель</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- course -->
+      <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+        <div class="course-item">
+          <div class="course-thumb set-bg" data-setbg="{% static 'webuni/img/courses/4.jpg' %}">
+            <iframe width="100%" height="290" src="https://www.youtube.com/embed/LQFsEwcCO1E?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="course-info">
+            <div class="course-text">
+              <h5>Электрическая цепь</h5>
+              <p>Физика</p>
+              <div class="students">Класс 11</div>
+            </div>
+            <div class="course-author">
+              <div class="ca-pic set-bg" data-setbg="{% static 'webuni/img/authors/4.jpg' %}"></div>
+              <p>Emri Mbiemri, <span>Учитель</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- course section end -->
+
+{% if request.user.is_authenticated %}
+
+<!-- signup section -->
+{% if request.user.profile.is_teacher == True %}
+<div class="container">
+  <h1 class="text-center">Ваша учетная запись имеет доступ для преподавателей</h1><br>
+  <p class="text-center">Имея учетную запись учителя, у вас уже есть полный доступ к этой платформе. Вы можете выполнять больше функций, чем в начальной учетной записи ученика. Некоторые из этих функций включают в себя:</p>
+
+  <div data-aos="fade-right" class="row mt-4 mb-4 bg-light">
+    <div class="col-md-4 text-center">
+      <h3 class="p-4">Вы можете создать свой класс</h3>
+      <a href="{% url 'courses:krijo_klase' %}" class="btn btn-outline-primary m-4">Создать класс</a>
+    </div>
+    <div class="col-md-8">
+      <img class="img-fluid w-100" src="{% static 'webuni/img/categories/4.jpg' %}" alt="">
+    </div>
+  </div>
+
+  <div data-aos="fade-left" class="row mt-4 mb-4 bg-light">
+      <div class="col-md-8">
+        <img class="img-fluid w-100" src="{% static 'webuni/img/categories/2.jpg' %}" alt="">
+      </div>
+
+    <div class="col-md-4 text-center">
+      <h3 class="p-4">Вы можете создать свои учебные дисциплины</h3>
+      <a href="{% url 'courses:krijo_lende' %}" class="btn btn-outline-primary m-4">Создать предмет</a>
+  </div>
+</div>
+
+<div data-aos="fade-right" class="row mt-4 mb-4 bg-light">
+  <div class="col-md-4 text-center">
+    <h3 class="p-4">Вы можете загружать свои учебные материалы и видеоуроки</h3>
+    <a href="{% url 'courses:krijo_mesim' %}" class="btn btn-outline-primary m-4">Создать урок</a>
+  </div>
+  <div class="col-md-8">
+    <img class="img-fluid w-100" src="{% static 'webuni/img/categories/1.jpg' %}" alt="">
+  </div>
+</div>
+</div>
+
+{% else %}
+<section data-aos="zoom-out" class="signup-section spad">
+  <div class="signup-bg set-bg" data-setbg="{% static 'webuni/img/signup-bg.jpg' %}"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="signup-warp">
+          <div class="section-title text-white text-left">
+            <h2>Зарегистрироваться как учитель</h2>
+            <p>Чтобы зарегистрироваться как учитель на платформе, вам нужно заполнить следующие поля, после чего у вас будет полный доступ для загрузки курсов и видео.</p>
+
+          </div>
+          <!-- signup form -->
+          <form action="/kerkesa/" method="post" class="signup-form">{% csrf_token %}
+            <input type="text" placeholder="Ваше имя" name="Имя">
+            <input type="text" placeholder="Email" name="E-mail">
+            <input type="text" placeholder="Номер телефона" name="Телефон">
+            <button class="site-btn">Dergo Kerkesen</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}
+<!-- signup section end -->
+{% else %}
+{% endif %}
+
+{% endblock content %}

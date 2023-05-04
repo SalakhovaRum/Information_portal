@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- Page info -->
+<div class="page-info-section set-bg" data-setbg="{% static 'webuni/img/page-bg/4.jpg' %}">
+  <div class="container">
+    <div class="site-breadcrumb">
+      <a href="#">Главная страницв</a>
+      <span>Контакты</span>
+    </div>
+  </div>
+</div>
+<!-- Page info end -->
+
+
+<!-- search section -->
+<section class="search-section ss-other-page">
+  <div class="container">
+    <div class="search-warp">
+      <div class="section-title text-white">
+        <h2><span>Найдите свой курс</span></h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <!-- search form -->
+          <form class="course-search-form">
+            <input type="text" placeholder="Курсы">
+            <input type="text" class="last-m" placeholder="Категории">
+            <button class="site-btn btn-dark">Поиск курса</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- search section end -->
+
+
+
+<!-- Page -->
+<section class="contact-page spad pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="contact-form-warp">
+          <div class="section-title text-white text-left">
+            <h2>Свяжитесь с нами</h2>
+            <p>я скоро сюда что-то напишу</p>
+          </div>
+          <form class="contact-form">
+            <input type="text" placeholder="Ваше имя">
+            <input type="text" placeholder="E-mail">
+            <input type="text" placeholder="Предмет">
+            <textarea placeholder="Сообщение"></textarea>
+            <button class="site-btn">Отправьте сообщение</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="contact-info-area">
+          <div class="section-title text-left p-0">
+            <h2>Контактная информация</h2>
+            <p>вероятнее всего что-то напишу, но это не точно</p>
+          </div>
+          <div class="phone-number">
+            <span>Прямой канал связи</span>
+            <h2>+7953 412-26-14</h2>
+          </div>
+          <ul class="contact-list">
+            <li>+7953 412-26-14</li>
+            <li>littleangel03@mail.ru</li>
+          </ul>
+          <div class="social-links">
+            <a href="#"><i class="fa fa-telegram"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-vk"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Page end -->
+
+{% endblock content %}
