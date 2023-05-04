@@ -67,7 +67,7 @@ class MembershipSelectView(ListView):
                 return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         # ПЕРЕДАЙТЕ SELECTED_MEMBERSHIP В СЕАНС, ЧТОБЫ ИМЕТЬ ВОЗМОЖНОСТЬ ВСТАВИТЬ ЕГО В СЛЕДУЮЩИЙ VIEW
         request.session['selected_membership_type'] = selected_membership.membership_type
-        # the above code is passing the value of enterprise or professional into the next view
+        # приведенный выше код передает значение enterprise или professional в следующее представление view
         return HttpResponseRedirect(reverse('memberships:payment'))
 
 
